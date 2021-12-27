@@ -14,10 +14,17 @@
         <entry key="..\:/Users/tjfit/Desktop/Mobile Development/Assignment/ChatApplication/app/src/main/res/layout/message_item.xml" value="0.2717391304347826" />
         <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/drawable/btn_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/drawable/edt_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/activity_chat.xml" value="0.15579710144927536" />
+        <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/activity_login.xml" value="0.15625" />
+        <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/activity_main.xml" value="0.15625" />
+        <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/activity_main2.xml" value="0.22" />
         <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/fragment_home.xml" value="0.15625" />
         <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/loginscreen.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/layout/user_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/tjfit/Desktop/Mobile development 2nd Assignment/ChatApplication/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
       </map>
     </option>
   </component>

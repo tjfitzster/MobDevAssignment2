@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#f0b40e</color>
     <color name="Darkorange">#a17808</color>
+
+    <color name="colorprimary">#F4511E</color>
+    <color name="colorPrimaryDark">#D84315</color>
+    <color name="colorAccent">#FFD600</color>
+
 </resources>

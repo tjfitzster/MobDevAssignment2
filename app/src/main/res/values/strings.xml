@@ -2,5 +2,10 @@
     <string name="app_name">SimpleChatApp</string>
     <string name="title_activity_maps">maps Activity</string>
     <string name="titlestring">STUDENT NUMBER: 20027865</string>
-
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="people">People</string>
+    <string name="Account">My Account</string>
 </resources>

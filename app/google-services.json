@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "820035281537",
+    "project_id": "firechat-e9f9c",
+    "storage_bucket": "firechat-e9f9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820035281537:android:4b21c2d4ebf82b9d5ee380",
+        "android_client_info": {
+          "package_name": "org.wit.chatapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820035281537-ohidmp0v7moh2j653gaj1jitsilvpth3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZP1KES-SVvHzBJqCuSyCS4kgZcHNn1Yc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820035281537-ohidmp0v7moh2j653gaj1jitsilvpth3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
