@@ -1,91 +1,68 @@
 package org.wit.chatapplication.activities
 
-
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
-import org.wit.chatapplication.databinding.LoginscreenBinding
-import org.wit.chatapplication.models.UserModel
+import com.google.firebase.auth.FirebaseAuth
+import org.wit.chatapplication.R
 
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: LoginscreenBinding
-    var user = UserModel()
-    var user1 = UserModel()
-    var user2 = UserModel()
-    var user3 = UserModel()
+    private lateinit var  edtEmail: EditText
+    private lateinit var  edtPassword:  EditText
+    private lateinit var  btnLogin:  Button
+    private lateinit var  btnSignUp:  Button
 
-    private var loggedin: Boolean = false
-
-    private val users = ArrayList<UserModel>()
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = LoginscreenBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_login)
 
+        supportActionBar?.hide()
+        mAuth = FirebaseAuth.getInstance()
+        edtEmail = findViewById(R.id.edt_email)
+        edtPassword = findViewById(R.id.edt_password)
+        btnLogin = findViewById(R.id.btnLogin)
+        btnSignUp = findViewById(R.id.btnSignup)
 
-        setContentView(binding.root)
-        // JUST PRELOADING THE USER MODEL WITH PEOPLE
-
-        user1.username = "Monty"
-        user1.password = "Password123"
-        user2.username = "Chris"
-        user2.password = "Password123"
-        user3.username = "TJ"
-        user3.password = "Password123"
-
-
-        // jsut pre laodign a list
-        users.add(user1.copy())
-        users.add(user2.copy())
-        users.add(user3.copy())
-
-
-
-        val intent = Intent(this, MainActivity::class.java)
-
-        binding.loginbutton.setOnClickListener() {
-
-            this.user.username = binding.username.text.toString()
-            this.user.password = binding.password.text.toString()
-
-            for (i in users.indices) {
-                if ((users[i].username.equals(this.user.username)) && (users[i].password.equals(this.user.password))) // checking if username match
-                {       loggedin = true
-                        startActivity(intent)
-                }
-                else{
-                    if (loggedin == false) {
-                       // Toast.makeText(this, "USER NOT REGISTERED ", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
+        btnSignUp.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
         }
 
-       binding.registerbutton.setOnClickListener() {
-           // just a bit of validaton
-           this.user.username = binding.username.text.toString()
-           this.user.password = binding.password.text.toString()
+        btnLogin.setOnClickListener {
+            val email = edtEmail.text.toString()
+            val password = edtPassword.text.toString()
+            login(email, password)
+        }
 
-           for (i in users.indices) {
-               if (users[i].username.equals(this.user.username))  // checking if username match
-               {
-                   Toast.makeText(this, "USER ALREADY EXISTS ", Toast.LENGTH_SHORT).show()
-               } else {
-                   if(this.user.password.length < 5)
-                   {
-                       Toast.makeText(this, "PASSWORD MUST BE MORE THAN 4 CHARACTERS ", Toast.LENGTH_SHORT).show()
-                   }
-                   else{
-                       users.add(user.copy())
-                       Toast.makeText(this, "NEW USER ADDED ", Toast.LENGTH_SHORT).show()
-                   }
 
-               }
-           }
-
-       }
     }
+
+    private fun login(email: String, password: String){
+
+        // Logic Creating user
+
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    finish()
+                    startActivity(intent)
+
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(this@LoginActivity, "User Does Not Exist", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+    }
+
+
 }
