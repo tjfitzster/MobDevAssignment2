@@ -63,6 +63,4 @@
         android:text="Sign UP"
         android:textSize="20sp" />
 
-
-
 </RelativeLayout>
