@@ -70,4 +70,13 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     implementation "com.google.code.gson:gson:2.8.6"
 
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+
+
 }
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
