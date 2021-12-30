@@ -29,19 +29,16 @@ class MainActivity : AppCompatActivity() {
 
         userList = ArrayList()
         adapter = UserAdapter(this, userList)
-          userRecyclerView = findViewById(R.id.userRecyclerView)
+
+        userRecyclerView = findViewById(R.id.userRecyclerView)
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
 
         mDbRef.child("user").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 userList.clear()
-
                 for(postSnapshot in snapshot.children){
-
                     val currentUser = postSnapshot.getValue(User::class.java)
-
                     if(mAuth.currentUser?.uid != currentUser?.uid) {
                         userList.add(currentUser!!)
                     }
@@ -53,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
