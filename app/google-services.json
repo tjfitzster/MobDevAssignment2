@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "777907673101",
+    "project_id": "assignment2chatapp",
+    "storage_bucket": "assignment2chatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777907673101:android:e2338c1eeb32b507155d44",
+        "android_client_info": {
+          "package_name": "com.tjassignment2.thechatapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777907673101-dp0sq8t87aptgcmdv1p8cl8hnlvgt47e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8aEjtgtjP3KcwKK1gXuOnHJTL2qI4rTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777907673101-dp0sq8t87aptgcmdv1p8cl8hnlvgt47e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

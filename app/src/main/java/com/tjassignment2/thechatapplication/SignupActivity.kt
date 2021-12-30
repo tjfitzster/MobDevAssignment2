@@ -6,37 +6,31 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.tjassignment2.thechatapplication.UserModel
+import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.database.DatabaseReference
+//import com.google.firebase.database.FirebaseDatabase
+
+
 
 
 class SignupActivity : AppCompatActivity() {
 
-    var user = UserModel()
-    var user1 = UserModel()
-    var user2 = UserModel()
-    var user3 = UserModel()
-
-
-    private val users = ArrayList<UserModel>()
 
 
     private lateinit var edtEmail: EditText
     private lateinit var edtPassword: EditText
     private lateinit var btnSignUp: Button
     private lateinit var edtName: EditText
+    private lateinit var mAuth: FirebaseAuth
+   // private lateinit var mDbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         supportActionBar?.hide()
 
-        user1.username = "Monty"
-        user1.password = "Password123"
-        user2.username = "Chris"
-        user2.password = "Password123"
-        user3.username = "TJ"
-        user3.password = "Password123"
 
+        mAuth = FirebaseAuth.getInstance()
         edtName = findViewById(R.id.edt_name)
         edtEmail = findViewById(R.id.edt_email)
         edtPassword = findViewById(R.id.edt_password)
@@ -55,14 +49,25 @@ class SignupActivity : AppCompatActivity() {
 
     private fun signup(name: String, email: String, password: String) {
 
-        Toast.makeText(this, "USER FOUND", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this@SignupActivity, MainActivity::class.java)
-        finish()
-        startActivity(intent)
+        mAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // write code for jumping to home activity
+                    addUserToDatabase(name, email, mAuth.currentUser?.uid!!)
+                    val intent = Intent(this@SignupActivity, MainActivity::class.java)
+                    finish()
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this@SignupActivity, "Some Error Occured", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 
-       // if ((user.username.isNotEmpty()) && (user.password.isNotEmpty())) {
-         //   users.add(user.copy())
-      //      Toast.makeText(this, "REGISTERING A NEW USER", Toast.LENGTH_SHORT).show()
-      //  }
+    private fun addUserToDatabase(name: String, email: String, uid: String){
+
+       // mDbRef = FirebaseDatabase.getInstance().getReference()
+
+      //  mDbRef.child("user").child(uid).setValue(User(name, email, uid))
+
     }
 }

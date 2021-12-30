@@ -6,23 +6,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-
+import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginActivity : AppCompatActivity() {
 
 
-    val users = ArrayList<UserModel>()
-
-    var user = UserModel()
-    var user1 = UserModel()
-    var user2 = UserModel()
-    var user3 = UserModel()
-
     private lateinit var edtEmail: EditText
     private lateinit var edtPassword: EditText
     private lateinit var btnLogin: Button
     private lateinit var btnSignUp: Button
+    private lateinit var mAuth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,17 +29,8 @@ class LoginActivity : AppCompatActivity() {
         edtPassword = findViewById(R.id.edt_password)
         btnLogin = findViewById(R.id.btnLogin)
         btnSignUp = findViewById(R.id.btnSignup)
+        mAuth = FirebaseAuth.getInstance()
 
-        user1.username = "Monty"
-        user1.password = "Password123"
-        user2.username = "Chris"
-        user2.password = "Password123"
-        user3.username = "TJ"
-        user3.password = "Password123"
-
-        users.add(user1.copy())
-        users.add(user2.copy())
-        users.add(user3.copy())
 
         btnSignUp.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
@@ -61,22 +46,19 @@ class LoginActivity : AppCompatActivity() {
 
     private fun login(email: String, password: String) {
 
-        Toast.makeText(this, "USER FOUND", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-        finish()
-        startActivity(intent)
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    finish()
+                    startActivity(intent)
 
-        //for (i in users.indices) {
-          //  if (this.users[i].username.equals(user.username)) {
-              //  Toast.makeText(this, "USER FOUND", Toast.LENGTH_SHORT).show()
-              //  val intent = Intent(this@LoginActivity, MainActivity::class.java)
-             //   finish()
-             //   startActivity(intent)
-        //    } else {
-             //   Toast.makeText(this, "USER NOT FOUND", Toast.LENGTH_SHORT).show()
-          //  }
-
-      //  }
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(this@LoginActivity, "User Does Not Exist", Toast.LENGTH_SHORT).show()
+                }
+            }
 
     }
 }
