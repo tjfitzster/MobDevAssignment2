@@ -56,7 +56,8 @@ class LoginActivity : AppCompatActivity() {
 
                 } else {
                     // If sign in fails, display a message to the user.
-                    Toast.makeText(this@LoginActivity, "User Does Not Exist", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, task.exception.toString(), Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(this@LoginActivity, "User Does Not Exist", Toast.LENGTH_SHORT).show()
                 }
             }
 

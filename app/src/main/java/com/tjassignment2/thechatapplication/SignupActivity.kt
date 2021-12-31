@@ -52,7 +52,9 @@ class SignupActivity : AppCompatActivity() {
                     finish()
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this@SignupActivity, "Some Error Occured", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignupActivity, task.exception.toString(), Toast.LENGTH_SHORT).show()
+
+                    //Toast.makeText(this@SignupActivity, "Some Error Occured", Toast.LENGTH_SHORT).show()
                 }
             }
     }
