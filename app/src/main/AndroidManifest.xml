@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheChatApplication">
         <activity
-            android:name=".MainActivity_LBTA"
+            android:name=".RegisterActivity_LBTA"
             android:exported="false" />
         <activity
             android:name=".LoginActivity_LBTA"
