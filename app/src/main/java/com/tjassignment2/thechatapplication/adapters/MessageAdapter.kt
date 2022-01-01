@@ -1,4 +1,4 @@
-package com.tjassignment2.thechatapplication
+package com.tjassignment2.thechatapplication.adapters
 
 
 import android.content.Context
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.tjassignment2.thechatapplication.models.Message
+import com.tjassignment2.thechatapplication.R
 
 class MessageAdapter(val context: Context, val messageList: ArrayList<Message>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

@@ -1,4 +1,4 @@
-package com.tjassignment2.thechatapplication
+package com.tjassignment2.thechatapplication.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +12,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import com.tjassignment2.thechatapplication.R
+import com.tjassignment2.thechatapplication.models.User
 
 
 class SignupActivity : AppCompatActivity() {
@@ -66,6 +68,5 @@ class SignupActivity : AppCompatActivity() {
 
         mDbRef = FirebaseDatabase.getInstance().getReference()
         mDbRef.child("user").child(uid).setValue(User(name, email, uid))
-
     }
 }

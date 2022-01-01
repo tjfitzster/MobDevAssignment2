@@ -1,6 +1,6 @@
-package com.tjassignment2.thechatapplication
+package com.tjassignment2.thechatapplication.models
 
-class User {
+class   User {
     var name: String? = null
     var email: String? = null
     var uid: String? = null

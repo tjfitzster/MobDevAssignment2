@@ -1,15 +1,17 @@
-package com.tjassignment2.thechatapplication
+package com.tjassignment2.thechatapplication.activities
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.tjassignment2.thechatapplication.R
+import com.tjassignment2.thechatapplication.adapters.MessageAdapter
+import com.tjassignment2.thechatapplication.models.Message
 
 
 class ChatActivity : AppCompatActivity() {
@@ -64,10 +66,7 @@ class ChatActivity : AppCompatActivity() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-
                 }
-
-
             })
         sendButton.setOnClickListener{
 
@@ -80,9 +79,7 @@ class ChatActivity : AppCompatActivity() {
                     mDbRef.child("chats").child(recieverRoom!!).child("messages").push()
                         .setValue(messageObject)
                 }
-
             messageBox.setText("")
-
 
         }
 

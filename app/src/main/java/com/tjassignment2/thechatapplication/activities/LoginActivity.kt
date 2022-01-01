@@ -1,4 +1,4 @@
-package com.tjassignment2.thechatapplication
+package com.tjassignment2.thechatapplication.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.tjassignment2.thechatapplication.R
 
 
 class LoginActivity : AppCompatActivity() {
@@ -22,7 +23,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
 
         supportActionBar?.hide()
         edtEmail = findViewById(R.id.edt_email)
@@ -60,6 +60,5 @@ class LoginActivity : AppCompatActivity() {
                    // Toast.makeText(this@LoginActivity, "User Does Not Exist", Toast.LENGTH_SHORT).show()
                 }
             }
-
     }
 }

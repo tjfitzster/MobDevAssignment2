@@ -1,4 +1,4 @@
-package com.tjassignment2.thechatapplication
+package com.tjassignment2.thechatapplication.models
 
 class Message {
 
