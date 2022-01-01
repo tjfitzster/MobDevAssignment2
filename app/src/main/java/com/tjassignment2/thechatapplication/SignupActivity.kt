@@ -7,9 +7,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 
 
 class SignupActivity : AppCompatActivity() {
@@ -21,13 +23,19 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
 
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         supportActionBar?.hide()
 
 
-        mAuth = FirebaseAuth.getInstance()
+
+       // mAuth = FirebaseAuth.getInstance()
+        mAuth = Firebase.auth
         edtName = findViewById(R.id.edt_name)
         edtEmail = findViewById(R.id.edt_email)
         edtPassword = findViewById(R.id.edt_password)
