@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity_LBTA : AppCompatActivity() {
 
@@ -23,10 +24,14 @@ class LoginActivity_LBTA : AppCompatActivity() {
         edtPassword = findViewById(R.id.password_edittext_login)
 
         btnLogin.setOnClickListener {
-            val Email = edtEmail.text.toString()
+            val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
 
-            Log.d("Login", "Attempt login with email/pw: $Email/***")
+            Log.d("Login", "Attempt login with email/pw: $email/***")
+
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+//          .addOnCompleteListener()
+//          .add
         }
 
         back_to_register_textview.setOnClickListener{
