@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.tjassignment2.thechatapplication.activities.ChatActivity
+import com.tjassignment2.thechatapplication.views.ChatActivity
 import com.tjassignment2.thechatapplication.R
 import com.tjassignment2.thechatapplication.models.User
 
