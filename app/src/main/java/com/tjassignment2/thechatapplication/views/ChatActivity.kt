@@ -1,4 +1,4 @@
-package com.tjassignment2.thechatapplication.activities
+package com.tjassignment2.thechatapplication.views
 
 
 import androidx.appcompat.app.AppCompatActivity
