@@ -3,7 +3,6 @@ package com.tjassignment2.thechatapplication.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,13 +11,14 @@ import com.google.firebase.database.*
 import com.tjassignment2.thechatapplication.R
 import com.tjassignment2.thechatapplication.adapters.MessageAdapter
 import com.tjassignment2.thechatapplication.models.Message
+import com.tjassignment2.thechatapplication.databinding.ActivityChatBinding
+
 
 
 class ChatActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityChatBinding
     private lateinit var chatRecyclerView: RecyclerView
-    private lateinit var messageBox: EditText
-    private lateinit var sendButton: ImageView
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Message>
 
@@ -29,7 +29,9 @@ class ChatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chat)
+
+        binding = ActivityChatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val name = intent.getStringExtra("name")
         val recieverUid = intent.getStringExtra("uid")
@@ -41,8 +43,6 @@ class ChatActivity : AppCompatActivity() {
         recieverRoom = senderUid + recieverUid
         supportActionBar?.title = name
         chatRecyclerView = findViewById(R.id.chatRecyclerView)
-        messageBox = findViewById(R.id.messageBox)
-        sendButton = findViewById(R.id.sendButton)
         messageList = ArrayList()
         messageAdapter = MessageAdapter(this, messageList)
 
@@ -65,9 +65,9 @@ class ChatActivity : AppCompatActivity() {
                 override fun onCancelled(error: DatabaseError) {
                 }
             })
-        sendButton.setOnClickListener{
+        binding.sendButton.setOnClickListener{
 
-            val message = messageBox.text.toString()
+            val message = binding.messageBox.text.toString()
             val messageObject = Message(message, senderUid)
 
             mDbRef.child("chats").child(senderRoom!!).child("messages").push()
@@ -76,7 +76,7 @@ class ChatActivity : AppCompatActivity() {
                     mDbRef.child("chats").child(recieverRoom!!).child("messages").push()
                         .setValue(messageObject)
                 }
-            messageBox.setText("")
+            binding.messageBox.setText("")
 
         }
 

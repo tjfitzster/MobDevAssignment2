@@ -3,43 +3,36 @@ package com.tjassignment2.thechatapplication.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.tjassignment2.thechatapplication.R
+import com.tjassignment2.thechatapplication.databinding.ActivityLoginBinding
 
 
 class LoginActivity : AppCompatActivity() {
 
-
-    private lateinit var edtEmail: EditText
-    private lateinit var edtPassword: EditText
-    private lateinit var btnLogin: Button
-    private lateinit var btnSignUp: Button
+    private lateinit var binding: ActivityLoginBinding
     private lateinit var mAuth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         supportActionBar?.hide()
-        edtEmail = findViewById(R.id.edt_email)
-        edtPassword = findViewById(R.id.edt_password)
-        btnLogin = findViewById(R.id.btnLogin)
-        btnSignUp = findViewById(R.id.btnSignup)
+
         mAuth = FirebaseAuth.getInstance()
 
 
-        btnSignUp.setOnClickListener {
+        binding.btnSignup.setOnClickListener {
             val intent = Intent(this@LoginActivity, SignupActivity::class.java)
             startActivity(intent)
         }
 
-        btnLogin.setOnClickListener {
-            val email = edtEmail.text.toString()
-            val password = edtPassword.text.toString()
+        binding.btnLogin.setOnClickListener {
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPassword.text.toString()
             login(email, password)
         }
     }

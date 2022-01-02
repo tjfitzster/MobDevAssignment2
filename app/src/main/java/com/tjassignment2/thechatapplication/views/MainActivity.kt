@@ -16,9 +16,6 @@ import com.tjassignment2.thechatapplication.models.User
 
 class MainActivity : AppCompatActivity() {
 
-    var user1 = User()
-    var user2 = User()
-    var user3 = User()
 
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: ArrayList<User>
@@ -30,23 +27,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        user1.name = "Jim"
-        user1.email = "Password123"
-        user1.uid = "adfshjyjrerr223"
-        user2.name = "Chris"
-        user2.email = "Password123"
-        user2.uid = "hgjtuiir6689"
-        user3.name = "Joe"
-        user3.email = "password123"
-        user3.uid = "q223rrrhuibd"
 
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().getReference()
 
-        userList = ArrayList()
-        userList.add(user1)
-        userList.add(user2)
-        userList.add(user3)
 
         adapter = UserAdapter(this, userList)
 
